@@ -1,0 +1,8 @@
+track*
+config.php
+phpadmin*
+.well-known*
+files*
+img*
+vendor
+dev

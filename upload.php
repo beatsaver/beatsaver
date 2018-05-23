@@ -13,6 +13,11 @@ $pagetitle = "BeatSaver - Upload Beat Track";
 //echo $string;
 if(!empty($_POST["beattitle"])){
 echo "<pre>";
+//TEST IF ZIP
+$zipext = (pathinfo($_FILES["fileupload"]['name']))['extension'];
+echo "Filetype: $zipext".PHP_EOL;
+if($zipext != 'zip'){die("You have not uploaded a ZIP file, please check the file and try again");}
+
 $zip = zip_open($_FILES["fileupload"]["tmp_name"]);
 
 if ($zip) {

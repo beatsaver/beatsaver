@@ -1,0 +1,23 @@
+<?php
+require 'Medoo.php';
+use Medoo\Medoo;
+$database = new Medoo([
+    'database_type' => 'mysql',
+    'database_name' => 'beatsaver',
+    'server' => 'localhost',
+    'username' => 'beatsaver',
+    'password' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+]);
+require("sendgrid-php/sendgrid-php.php");
+$playtoken = 'xxxxxxxxxxxx';
+$CAPTCHA_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$SENDGRID_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+session_start();
+if(@$requirelogin){
+if(empty($_SESSION["userdb"][0]["id"])){
+header("Location: login.php");
+die();
+}
+}
+$cache = true;
+require("cache.php");

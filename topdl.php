@@ -36,7 +36,7 @@ if(!empty($brow['id'])){ ?>
 <table class="table" style="table-layout:fixed;">
   <tr>
     <th rowspan="5" style="width: 15%;"><a href="details.php?id=<?php echo $brow['id']; ?>"><img src="<?php echo 'img/'.$brow["id"].'.'.$brow["img"]; ?>" alt="<?php echo $brow["beatname"]; ?>" style="min-width: 10em; max-width: 10em;"></a></th>
-    <th><small>Uploaded by: <?php echo ($database->select("users", "username", ["id" => $brow["ownerid"]]))[0]; date_default_timezone_set('UTC'); echo "  on " . date(DATE_ATOM, $brow["uploadtime"]);?><br>
+    <th><small>Uploaded by: <?php echo (qcache($database, "user-".$brow["ownerid"], "users", "username", ["id" => $brow["ownerid"]]))[0]; date_default_timezone_set('UTC'); echo "  on " . date(DATE_ATOM, $brow["uploadtime"]);?><br>
                 </small></th>
   </tr>
   <tr>

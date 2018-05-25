@@ -26,6 +26,7 @@ $bt = qcache($database, "topdlapi".$offset, "beats", [
 ]);
 foreach($bt as $key => $row){
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 }
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);
 }
@@ -51,6 +52,7 @@ $bt = qcache($database, "newapi".$offset, "beats", [
 ]);
 foreach($bt as $key => $row){
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 }
 
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);
@@ -77,6 +79,7 @@ $bt = qcache($database, "starapi".$offset, "beats", [
 ]);
 foreach($bt as $key => $row){
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 }
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);
 }
@@ -102,6 +105,7 @@ $bt = qcache($database, "playedapi".$offset, "beats", [
 ]);
 foreach($bt as $key => $row){
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 }
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);
 }
@@ -129,6 +133,7 @@ $bt = qcache($database, "detailsapi-".$_GET['id'], "beats", [
 ]);
 foreach($bt as $key => $row){
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 }
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);
 }
@@ -164,6 +169,7 @@ $bt = qcache($database, "diffmapapiinfo-".$bt2[0]["beatid"], "beats", [
 	'id' => $bt2[0]["beatid"]
 ]);
 foreach($bt as $key => $row){
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
 }
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);
@@ -219,6 +225,7 @@ $bt = qcache($database, "usersongsapi-".$_GET['id'], "beats", [
         "ownerid" => (int) $_GET["id"]
 ]);
 foreach($bt as $key => $row){
+$bt[$key]["uploader"] = (qcache($database, "user-".$bt[$key]["ownerid"], "users", "username", ["id" => $bt[$key]["ownerid"]]))[0];
 $bt[$key]["difficultyLevels"] = json_decode($bt[$key]["difficultyLevels"]);
 }
 echo json_encode($bt, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_PRETTY_PRINT);

@@ -45,3 +45,9 @@
         </div>
       </div>
     </nav>
+    <div class="container">
+      <div class="row">
+	<div class="col-md-1"><br><br><br><br></div>
+        <div class="col-md-12">
+<div class="alert alert-info" role="alert"> Looking for devlopers to help improve BeatSaver! Check out the <a href=https://github.com/beatsaver/beatsaver>Github repo</a>. Complete Rewrites are welcome! Chat with me on the <a href=https://discord.gg/ZY8T8ky>Discord</a>, I'm Balsa.</div>
+</div></div>
